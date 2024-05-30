@@ -1,0 +1,40 @@
+.form {
+    display: block;
+    padding: 10px;
+    margin-bottom: 10px;  
+    border: 1px solid rgb(147, 147, 147);
+    border-radius: 5px;
+    width: 400px;
+}
+
+.formGroup {
+    padding: 10px;
+}
+
+.btn{
+    display: block;
+    padding: 10px;
+    background-color: rgb(0, 175, 166);
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 0 auto;
+    border: 0;
+}
+
+.btn:hover {
+    background-color: rgb(175, 0, 44);
+}
+
+.input {
+font: inherit
+}
+
+.formGroup {
+display: flex;
+flex-direction: column;
+}
+
+.err {
+    color: orangered;
+    font-size: 14px;
+}
