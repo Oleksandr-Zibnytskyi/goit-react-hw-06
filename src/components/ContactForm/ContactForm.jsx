@@ -1,36 +1,38 @@
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import css from "./ContactForm.module.css";
-import * as Yup from "yup";
-import { useId } from "react";
-import { nanoid } from "nanoid";
+import { useDispatch } from 'react-redux';
+import { addContact } from '../../redux/contactsSlice';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import css from './ContactForm.module.css';
+import * as Yup from 'yup';
+import { useId } from 'react';
+import { nanoid } from 'nanoid';
 
-function ContactForm({ addContact }) {
+const ContactForm = () => {
   const nameFieldId = useId();
   const numberFieldId = useId();
 
+  const dispatch = useDispatch();
+
   const handleSubmit = (values, actions) => {
-    addContact({
-      id: nanoid(),
-      name: values.name,
-      number: values.number,
-    });
+    const id = nanoid();
+    const { name, number } = values;
+    dispatch(addContact({ id, name, number }));
     actions.resetForm();
   };
 
   const ValidationForm = Yup.object().shape({
     name: Yup.string()
-      .min(3, "Too Short!")
-      .max(50, "Too Long!")
-      .required("Required"),
+      .min(3, 'Too Short!')
+      .max(50, 'Too Long!')
+      .required('Required'),
     number: Yup.string()
-      .min(3, "Too Short!")
-      .max(50, "Too Long!")
-      .required("Required"),
+      .min(3, 'Too Short!')
+      .max(50, 'Too Long!')
+      .required('Required'),
   });
 
   const initialContact = {
-    name: "",
-    number: "",
+    name: '',
+    number: '',
   };
 
   return (
@@ -68,6 +70,6 @@ function ContactForm({ addContact }) {
       </Form>
     </Formik>
   );
-}
+};
 
 export default ContactForm;

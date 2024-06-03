@@ -4,6 +4,7 @@ import ContactList from "./components/ContactList/ContactList";
 import SearchBox from "./components/SearchBox/SearchBox";
 import UserContacts from "./contacts.json";
 
+
 function App() {
   const [filter, setFilter] = useState("");
   const [contacts, setContacts] = useState(() => {
