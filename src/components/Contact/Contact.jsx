@@ -1,9 +1,16 @@
 import { useDispatch } from 'react-redux';
 import { deleteContact } from '../../redux/contactsSlice';
+import PropTypes from 'prop-types';
 
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoPerson } from "react-icons/io5";
 import css from "./Contact.module.css";
+
+Contact.propTypes = {
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
+};
 
 function Contact({ id, name, number }) {
 
@@ -30,4 +37,8 @@ function Contact({ id, name, number }) {
   );
 }
 
+
 export default Contact;
+
+
+
